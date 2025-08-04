@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Camera, Filter, Calendar, Tag, Eye, Mail, MapPin, Instagram } from "lucide-react"
+import { Camera, Filter, Calendar, Tag, Eye, Mail, MapPin, Send } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -131,11 +131,10 @@ export default function PhotographerPortfolio() {
   const renderMainSection = () => (
     <div className="min-h-screen flex items-center justify-center px-6">
       <div className="max-w-4xl mx-auto text-center space-y-8">
-        <div className="space-y-4">
-          <h1 className="text-6xl md:text-8xl font-light text-white tracking-tight">Visual Stories</h1>
+        <div className="space-y-8">
+          <h1 className="text-6xl md:text-8xl font-light text-white tracking-tight">Свет. Форма. Метафизика.</h1>
           <p className="text-xl md:text-2xl text-gray-300 font-light max-w-2xl mx-auto leading-relaxed">
-            Capturing moments that speak beyond words, exploring the intersection of light, shadow, and human
-            experience.
+            Исследую границы визуального повествования через стрит-фотографию и концептуальные проекты.
           </p>
         </div>
 
@@ -144,14 +143,14 @@ export default function PhotographerPortfolio() {
             onClick={() => setActiveSection("portfolio")}
             className="bg-white text-black hover:bg-gray-200 px-8 py-3 text-lg"
           >
-            View Portfolio
+            Галерея
           </Button>
           <Button
             onClick={() => setActiveSection("blog")}
             variant="outline"
             className="border-white bg-white text-black hover:bg-gray-200 hover:text-black px-8 py-3 text-lg"
           >
-            Read Blog
+            Блог
           </Button>
         </div>
       </div>
@@ -163,7 +162,7 @@ export default function PhotographerPortfolio() {
       <div className="max-w-7xl mx-auto">
         <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-12 gap-6">
           <div>
-            <h2 className="text-4xl md:text-5xl font-light text-white mb-4">Portfolio</h2>
+            <h2 className="text-4xl md:text-5xl font-light text-white mb-4">Галерея</h2>
             <p className="text-gray-400 text-lg">
               {loading ? "Loading..." : `${filteredPhotos.length} ${filteredPhotos.length === 1 ? "image" : "images"}`}
             </p>
@@ -191,7 +190,7 @@ export default function PhotographerPortfolio() {
                 <div>
                   <h3 className="text-white font-medium mb-3 flex items-center">
                     <Tag className="w-4 h-4 mr-2" />
-                    Categories
+                    Категории
                   </h3>
                   <div className="flex flex-wrap gap-3">
                     {CATEGORIES.map((category) => (
@@ -212,7 +211,7 @@ export default function PhotographerPortfolio() {
                 <div>
                   <h3 className="text-white font-medium mb-3 flex items-center">
                     <Calendar className="w-4 h-4 mr-2" />
-                    Seasons
+                    Сезоны
                   </h3>
                   <div className="flex flex-wrap gap-3">
                     {SEASONS.map((season) => (
@@ -232,7 +231,7 @@ export default function PhotographerPortfolio() {
 
                 {(selectedCategories.length > 0 || selectedSeasons.length > 0) && (
                   <Button onClick={clearFilters} variant="ghost" className="text-gray-400 hover:text-black">
-                    Clear all filters
+                    Очистить фильтры
                   </Button>
                 )}
               </div>
@@ -242,7 +241,7 @@ export default function PhotographerPortfolio() {
 
         {loading ? (
           <div className="text-center py-12">
-            <p className="text-gray-400">Loading portfolio...</p>
+            <p className="text-gray-400">Загружаю...</p>
           </div>
         ) : (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -267,11 +266,11 @@ export default function PhotographerPortfolio() {
                       <h3 className="text-white font-medium">{photo.title}</h3>
                       <div className="flex flex-wrap gap-1">
                         {photo.categories.map((category) => (
-                          <Badge key={category} variant="secondary" className="text-xs bg-gray-800 text-gray-300">
+                          <Badge key={category} variant="secondary" className="text-xs bg-gray-800 text-gray-300 hover:bg-gray-800">
                             {category}
                           </Badge>
                         ))}
-                        {photo.season && <Badge className="text-xs bg-white text-black">{photo.season}</Badge>}
+                        {photo.season && <Badge className="text-xs bg-white text-black hover:bg-white">{photo.season}</Badge>}
                       </div>
                     </div>
                   </div>
@@ -316,10 +315,10 @@ export default function PhotographerPortfolio() {
 
                               <div className="space-y-4">
                                 <div>
-                                  <h3 className="text-white font-medium mb-2">Categories</h3>
+                                  <h3 className="text-white font-medium mb-2">Категории</h3>
                                   <div className="flex flex-wrap gap-2">
                                     {photo.categories.map((category) => (
-                                      <Badge key={category} variant="secondary" className="bg-gray-800 text-gray-300">
+                                      <Badge key={category} variant="primary" className="bg-black text-gray-300 hover:bg-black">
                                         {category}
                                       </Badge>
                                     ))}
@@ -348,12 +347,12 @@ export default function PhotographerPortfolio() {
 
                                 <div className="text-gray-400 text-sm space-y-1">
                                   <p>
-                                    Dimensions: {photo.width} × {photo.height}
+                                    Разрешение: {photo.width} × {photo.height}
                                   </p>
-                                  <p>Date: {new Date(photo.dateCreated).toLocaleDateString()}</p>
-                                  {photo.dateTaken && <p>Taken: {new Date(photo.dateTaken).toLocaleDateString()}</p>}
-                                  {photo.format && <p>Format: {photo.format.toUpperCase()}</p>}
-                                  {photo.fileSize && <p>Size: {photo.fileSize}</p>}
+                                  <p>Дата: {new Date(photo.dateCreated).toLocaleDateString()}</p>
+                                  {photo.dateTaken && <p>Снято: {new Date(photo.dateTaken).toLocaleDateString()}</p>}
+                                  {photo.format && <p>Формат: {photo.format.toUpperCase()}</p>}
+                                  {photo.fileSize && <p>Вес: {photo.fileSize}</p>}
                                 </div>
                               </div>
                             </div>
@@ -387,10 +386,10 @@ export default function PhotographerPortfolio() {
 
                               <div className="space-y-4">
                                 <div>
-                                  <h3 className="text-white font-medium mb-2">Categories</h3>
+                                  <h3 className="text-white font-medium mb-2">Категории</h3>
                                   <div className="flex flex-wrap gap-2">
                                     {photo.categories.map((category) => (
-                                      <Badge key={category} variant="secondary" className="bg-gray-800 text-gray-300">
+                                      <Badge key={category} variant="primary" className="bg-black text-gray-300 hover:bg-black">
                                         {category}
                                       </Badge>
                                     ))}
@@ -419,12 +418,12 @@ export default function PhotographerPortfolio() {
 
                                 <div className="text-gray-400 text-sm space-y-1">
                                   <p>
-                                    Dimensions: {photo.width} × {photo.height}
+                                    Разрешение: {photo.width} × {photo.height}
                                   </p>
-                                  <p>Date: {new Date(photo.dateCreated).toLocaleDateString()}</p>
-                                  {photo.dateTaken && <p>Taken: {new Date(photo.dateTaken).toLocaleDateString()}</p>}
-                                  {photo.format && <p>Format: {photo.format.toUpperCase()}</p>}
-                                  {photo.fileSize && <p>Size: {photo.fileSize}</p>}
+                                  <p>Дата: {new Date(photo.dateCreated).toLocaleDateString()}</p>
+                                  {photo.dateTaken && <p>Снято: {new Date(photo.dateTaken).toLocaleDateString()}</p>}
+                                  {photo.format && <p>Формат: {photo.format.toUpperCase()}</p>}
+                                  {photo.fileSize && <p>Вес: {photo.fileSize}</p>}
                                 </div>
                               </div>
                             </div>
@@ -467,7 +466,7 @@ export default function PhotographerPortfolio() {
                             <div className="space-y-3">
                               {photo.categories.length > 0 && (
                                 <div>
-                                  <h3 className="text-white font-medium mb-1 text-sm">Categories</h3>
+                                  <h3 className="text-white font-medium mb-1 text-sm">Категории</h3>
                                   <div className="flex flex-wrap gap-1">
                                     {photo.categories.map((category) => (
                                       <Badge
@@ -504,13 +503,13 @@ export default function PhotographerPortfolio() {
 
                               <div className="text-gray-400 text-xs space-y-1 leading-relaxed">
                                 <p>
-                                  Dimensions: {photo.width} × {photo.height}
+                                  Разрешение: {photo.width} × {photo.height}
                                 </p>
-                                <p>Date: {new Date(photo.dateCreated).toLocaleDateString()}</p>
-                                {photo.dateTaken && <p>Taken: {new Date(photo.dateTaken).toLocaleDateString()}</p>}
+                                <p>Дата: {new Date(photo.dateCreated).toLocaleDateString()}</p>
+                                {photo.dateTaken && <p>Снято: {new Date(photo.dateTaken).toLocaleDateString()}</p>}
                                 <div className="flex gap-4">
-                                  {photo.format && <p>Format: {photo.format.toUpperCase()}</p>}
-                                  {photo.fileSize && <p>Size: {photo.fileSize}</p>}
+                                  {photo.format && <p>Формат: {photo.format.toUpperCase()}</p>}
+                                  {photo.fileSize && <p>Вес: {photo.fileSize}</p>}
                                 </div>
                               </div>
                             </div>
@@ -531,7 +530,7 @@ export default function PhotographerPortfolio() {
   const renderBlogSection = () => (
     <div className="min-h-screen py-12 px-6">
       <div className="max-w-4xl mx-auto">
-        <h2 className="text-4xl md:text-5xl font-light text-white mb-12">Blog</h2>
+        <h2 className="text-4xl md:text-5xl font-light text-white mb-12">Блог</h2>
 
         <div className="space-y-8">
           {blogPosts.map((post) => (
@@ -546,8 +545,8 @@ export default function PhotographerPortfolio() {
                   <p className="text-gray-300 leading-relaxed">{post.excerpt}</p>
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button variant="ghost" className="text-white hover:text-gray-300 p-0">
-                        Read more →
+                      <Button variant="ghost" className="text-white hover:text-black p-3">
+                        Читать больше →
                       </Button>
                     </DialogTrigger>
                     <DialogContent className="max-w-4xl bg-gray-900 border-gray-700 overflow-hidden mx-3 my-4 max-h-[calc(100vh-2rem)] md:m-4">
@@ -598,23 +597,21 @@ export default function PhotographerPortfolio() {
             {/* Contact Info */}
             <Card className="bg-gray-900 border-gray-700">
               <CardContent className="p-6 space-y-4">
-                <h3 className="text-white font-medium mb-4">Get In Touch</h3>
+                <h3 className="text-white font-medium mb-4">На связи!</h3>
                 <div className="space-y-3 text-gray-300">
                   <div className="flex items-center space-x-3">
                     <Mail className="w-4 h-4 text-gray-400" />
-                    <span>hello@photographer.com</span>
+                    <span>mark-litvak@mail.ru</span>
                   </div>
                   <div className="flex items-center space-x-3">
                     <MapPin className="w-4 h-4 text-gray-400" />
-                    <span>Moscow, Russia</span>
+                    <span>Москва, Россия</span>
                   </div>
                   <div className="flex items-center space-x-3">
-                    <Instagram className="w-4 h-4 text-gray-400" />
-                    <span>@photographer</span>
+                    <Send className="w-4 h-4 text-gray-400" />
+                    <span>@canonlifeshots</span>
                   </div>
                 </div>
-
-                <Button className="w-full bg-white text-black hover:bg-gray-200 mt-4">Contact Me</Button>
               </CardContent>
             </Card>
           </div>
@@ -622,7 +619,7 @@ export default function PhotographerPortfolio() {
           {/* About Content */}
           <div className="space-y-8">
             <div>
-              <h2 className="text-4xl md:text-5xl font-light text-white mb-6">About Me</h2>
+              <h2 className="text-4xl md:text-5xl font-light text-white mb-6">Обо мне</h2>
               <div className="space-y-6 text-gray-300 leading-relaxed">
                 <p>
                   I'm a photographer based in Moscow, passionate about capturing the essence of urban life and the quiet
@@ -647,7 +644,7 @@ export default function PhotographerPortfolio() {
             {/* Skills & Equipment */}
             <div className="space-y-6">
               <div>
-                <h3 className="text-white font-medium mb-4">Specializations</h3>
+                <h3 className="text-white font-medium mb-4">Специализация</h3>
                 <div className="flex flex-wrap gap-2">
                   {[
                     "Street Photography",
@@ -657,7 +654,7 @@ export default function PhotographerPortfolio() {
                     "Urban Landscapes",
                     "Portrait",
                   ].map((skill) => (
-                    <Badge key={skill} variant="secondary" className="bg-gray-800 text-gray-300">
+                    <Badge key={skill} variant="primary" className="bg-dark text-gray-300">
                       {skill}
                     </Badge>
                   ))}
@@ -665,16 +662,16 @@ export default function PhotographerPortfolio() {
               </div>
 
               <div>
-                <h3 className="text-white font-medium mb-4">Equipment</h3>
+                <h3 className="text-white font-medium mb-4">Инструменты</h3>
                 <div className="space-y-2 text-gray-300 text-sm">
                   <p>
-                    <strong>Cameras:</strong> Canon EOS R5, Canon EOS 1100D, Sony A7R IV, Leica M10
+                    <strong>Камера:</strong> Canon EOS 1100D
                   </p>
                   <p>
-                    <strong>Lenses:</strong> 16-35mm f/2.8, 24-70mm f/2.8, 50mm f/1.4, 85mm f/1.8
+                    <strong>Объектив:</strong> 16-35mm f/2.8, 24-70mm f/2.8, 50mm f/1.4
                   </p>
                   <p>
-                    <strong>Post-processing:</strong> Adobe Lightroom, Photoshop, Capture One
+                    <strong>Обработка:</strong> Photoshop, Capture One
                   </p>
                 </div>
               </div>
@@ -682,7 +679,7 @@ export default function PhotographerPortfolio() {
 
             {/* Awards & Recognition */}
             <div>
-              <h3 className="text-white font-medium mb-4">Recognition</h3>
+              <h3 className="text-white font-medium mb-4">Признание и комплименты</h3>
               <div className="space-y-3 text-gray-300">
                 <div className="border-l-2 border-gray-700 pl-4">
                   <p className="font-medium">Moscow Photography Awards</p>
@@ -712,7 +709,7 @@ export default function PhotographerPortfolio() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Camera className="w-6 h-6 text-white" />
-              <span className="text-white font-light text-lg">Portfolio</span>
+              <span className="text-white font-light text-lg">Портфолио</span>
             </div>
 
             <div className="flex space-x-8">
