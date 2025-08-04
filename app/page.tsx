@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { Camera, Filter, Calendar, Tag, Eye } from "lucide-react"
+import { Camera, Filter, Calendar, Tag, Eye, Mail, MapPin, Instagram } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 import { Card, CardContent } from "@/components/ui/card"
@@ -49,7 +49,7 @@ interface PortfolioData {
   lastUpdated: string
 }
 
-const CATEGORIES = ["best", "street", "concept", "monochrome", "experiments", "architecture"]
+const CATEGORIES = ["Best", "Street", "Concept", "Monochrome", "Experiments", "Architecture"]
 const SEASONS = ["SS 25", "FW 24"]
 
 export default function PhotographerPortfolio() {
@@ -546,7 +546,7 @@ export default function PhotographerPortfolio() {
                   <p className="text-gray-300 leading-relaxed">{post.excerpt}</p>
                   <Dialog>
                     <DialogTrigger asChild>
-                      <Button variant="ghost" className="text-white hover:text-black px-3 py-3">
+                      <Button variant="ghost" className="text-white hover:text-gray-300 p-0">
                         Read more →
                       </Button>
                     </DialogTrigger>
@@ -579,6 +579,131 @@ export default function PhotographerPortfolio() {
     </div>
   )
 
+  const renderAboutSection = () => (
+    <div className="min-h-screen py-12 px-6">
+      <div className="max-w-4xl mx-auto">
+        <div className="grid md:grid-cols-2 gap-12 items-start">
+          {/* Profile Image */}
+          <div className="space-y-6">
+            <div className="relative aspect-[3/4] bg-gray-900 rounded-lg overflow-hidden">
+              <Image
+                src="/placeholder.svg?height=600&width=450"
+                alt="Photographer portrait"
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 50vw"
+              />
+            </div>
+
+            {/* Contact Info */}
+            <Card className="bg-gray-900 border-gray-700">
+              <CardContent className="p-6 space-y-4">
+                <h3 className="text-white font-medium mb-4">Get In Touch</h3>
+                <div className="space-y-3 text-gray-300">
+                  <div className="flex items-center space-x-3">
+                    <Mail className="w-4 h-4 text-gray-400" />
+                    <span>hello@photographer.com</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <MapPin className="w-4 h-4 text-gray-400" />
+                    <span>Moscow, Russia</span>
+                  </div>
+                  <div className="flex items-center space-x-3">
+                    <Instagram className="w-4 h-4 text-gray-400" />
+                    <span>@photographer</span>
+                  </div>
+                </div>
+
+                <Button className="w-full bg-white text-black hover:bg-gray-200 mt-4">Contact Me</Button>
+              </CardContent>
+            </Card>
+          </div>
+
+          {/* About Content */}
+          <div className="space-y-8">
+            <div>
+              <h2 className="text-4xl md:text-5xl font-light text-white mb-6">About Me</h2>
+              <div className="space-y-6 text-gray-300 leading-relaxed">
+                <p>
+                  I'm a photographer based in Moscow, passionate about capturing the essence of urban life and the quiet
+                  moments that often go unnoticed. My work focuses on the intersection of architecture, street
+                  photography, and conceptual art.
+                </p>
+
+                <p>
+                  With over 8 years of experience behind the lens, I've developed a distinctive style that emphasizes
+                  contrast, composition, and the emotional depth of everyday scenes. My approach combines technical
+                  precision with an intuitive understanding of light and shadow.
+                </p>
+
+                <p>
+                  When I'm not photographing the streets of Moscow, I enjoy experimenting with new techniques and
+                  exploring the boundaries between documentary and fine art photography. Each image tells a story, and I
+                  believe in the power of visual narrative to connect people across cultures and experiences.
+                </p>
+              </div>
+            </div>
+
+            {/* Skills & Equipment */}
+            <div className="space-y-6">
+              <div>
+                <h3 className="text-white font-medium mb-4">Specializations</h3>
+                <div className="flex flex-wrap gap-2">
+                  {[
+                    "Street Photography",
+                    "Architecture",
+                    "Conceptual Art",
+                    "Black & White",
+                    "Urban Landscapes",
+                    "Portrait",
+                  ].map((skill) => (
+                    <Badge key={skill} variant="secondary" className="bg-gray-800 text-gray-300">
+                      {skill}
+                    </Badge>
+                  ))}
+                </div>
+              </div>
+
+              <div>
+                <h3 className="text-white font-medium mb-4">Equipment</h3>
+                <div className="space-y-2 text-gray-300 text-sm">
+                  <p>
+                    <strong>Cameras:</strong> Canon EOS R5, Canon EOS 1100D, Sony A7R IV, Leica M10
+                  </p>
+                  <p>
+                    <strong>Lenses:</strong> 16-35mm f/2.8, 24-70mm f/2.8, 50mm f/1.4, 85mm f/1.8
+                  </p>
+                  <p>
+                    <strong>Post-processing:</strong> Adobe Lightroom, Photoshop, Capture One
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            {/* Awards & Recognition */}
+            <div>
+              <h3 className="text-white font-medium mb-4">Recognition</h3>
+              <div className="space-y-3 text-gray-300">
+                <div className="border-l-2 border-gray-700 pl-4">
+                  <p className="font-medium">Moscow Photography Awards</p>
+                  <p className="text-sm text-gray-400">Best Street Photography Series, 2024</p>
+                </div>
+                <div className="border-l-2 border-gray-700 pl-4">
+                  <p className="font-medium">Urban Vision Exhibition</p>
+                  <p className="text-sm text-gray-400">Featured Artist, Central House of Artists, 2023</p>
+                </div>
+                <div className="border-l-2 border-gray-700 pl-4">
+                  <p className="font-medium">International Photography Contest</p>
+                  <p className="text-sm text-gray-400">Honorable Mention, Architecture Category, 2023</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  )
+
   return (
     <div className="min-h-screen bg-black">
       {/* Navigation */}
@@ -591,7 +716,7 @@ export default function PhotographerPortfolio() {
             </div>
 
             <div className="flex space-x-8">
-              {["main", "portfolio", "blog"].map((section) => (
+              {["main", "portfolio", "about", "blog"].map((section) => (
                 <button
                   key={section}
                   onClick={() => setActiveSection(section)}
@@ -612,6 +737,7 @@ export default function PhotographerPortfolio() {
         {activeSection === "main" && renderMainSection()}
         {activeSection === "portfolio" && renderPortfolioSection()}
         {activeSection === "blog" && renderBlogSection()}
+        {activeSection === "about" && renderAboutSection()}
       </main>
     </div>
   )
