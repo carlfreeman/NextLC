@@ -1,0 +1,44 @@
+{
+  "photos": [
+    {
+      "id": "1",
+      "title": "Urban Solitude",
+      "description": "A moment of quiet contemplation in the bustling city",
+      "categories": ["best", "street", "monochrome"],
+      "season": "FW 24",
+      "filename": "urban-solitude.jpg",
+      "url": "/images/urban-solitude.jpg",
+      "width": 600,
+      "height": 800,
+      "dateCreated": "2024-11-15",
+      "camera": "Canon EOS R5",
+      "lens": "50mm f/1.4",
+      "settings": {
+        "aperture": "f/2.8",
+        "shutter": "1/125s",
+        "iso": "800",
+        "focalLength": "50mm"
+      }
+    },
+    {
+      "id": "2",
+      "title": "Architectural Dreams",
+      "description": "Modern geometry meets classical proportions",
+      "categories": ["architecture", "concept"],
+      "season": "SS 25",
+      "filename": "architectural-dreams.jpg",
+      "url": "/images/architectural-dreams.jpg",
+      "width": 800,
+      "height": 600,
+      "dateCreated": "2024-12-01",
+      "camera": "Sony A7R IV",
+      "lens": "24-70mm f/2.8",
+      "settings": {
+        "aperture": "f/8",
+        "shutter": "1/250s",
+        "iso": "200",
+        "focalLength": "35mm"
+      }
+    }
+  ]
+}

@@ -1,0 +1,20 @@
+{
+  "posts": [
+    {
+      "id": "1",
+      "title": "The Philosophy of Street Photography",
+      "excerpt": "Exploring the deeper meaning behind capturing candid moments in urban environments.",
+      "content": "Street photography is more than just documenting life as it happens. It's about finding the extraordinary in the ordinary, the poetry in the mundane. When I walk through the city with my camera, I'm not just looking for interesting subjects – I'm searching for moments that reveal something deeper about the human condition.\n\nThe best street photographs tell stories without words. They capture fleeting expressions, unexpected juxtapositions, and the beautiful chaos of urban life. Each frame is a decision about what to include and what to leave out, what story to tell and how to tell it.\n\nThere's an ethics to street photography that goes beyond the technical aspects. It's about respect for your subjects, understanding the difference between observation and intrusion, and knowing when to lower your camera and simply experience the moment.",
+      "date": "2024-12-01",
+      "readTime": "5 min read"
+    },
+    {
+      "id": "2",
+      "title": "Working with Natural Light",
+      "excerpt": "Understanding how to harness and shape natural light for compelling portraits.",
+      "content": "Natural light is the photographer's most powerful tool. Learning to see and work with available light can transform your photography from snapshots to compelling visual narratives.\n\nThe quality of light changes throughout the day, each hour offering different possibilities. The harsh midday sun creates strong shadows and high contrast – perfect for dramatic architectural shots or bold street photography. The golden hour provides warm, soft light that flatters portraits and landscapes alike.\n\nBut it's not just about the time of day. Weather conditions, seasons, and even the urban environment itself all affect the quality and direction of light. Overcast skies create a natural softbox, perfect for even lighting. Rain adds reflections and mood. Snow acts as a giant reflector, bouncing light in unexpected ways.",
+      "date": "2024-11-28",
+      "readTime": "7 min read"
+    }
+  ]
+}
