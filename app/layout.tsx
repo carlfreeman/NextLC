@@ -1,12 +1,15 @@
-import type { Metadata } from 'next'
-import { GeistSans } from 'geist/font/sans'
-import { GeistMono } from 'geist/font/mono'
-import './globals.css'
+import type React from "react"
+import type { Metadata } from "next"
+import { GeistSans } from "geist/font/sans"
+import { GeistMono } from "geist/font/mono"
+import "./globals.css"
+import { ThemeProvider } from "@/components/theme-provider"
 
 export const metadata: Metadata = {
-  title: 'LC | M.Litvak',
-  description: 'Фотопортфолио М.Литвак: концептуальная и стрит-фотография, чёрно-белые работы и визуальные эксперименты',
-  generator: 'Next.js',
+  title: "LC | M.Litvak",
+  description:
+    "Фотопортфолио М.Литвак: концептуальная и стрит-фотография, чёрно-белые работы и визуальные эксперименты",
+  generator: "Next.js",
 }
 
 export default function RootLayout({
@@ -15,7 +18,7 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
   return (
-    <html lang="ru">
+    <html lang="ru" suppressHydrationWarning>
       <head>
         <style>{`
 html {
@@ -25,7 +28,11 @@ html {
 }
         `}</style>
       </head>
-      <body>{children}</body>
+      <body>
+        <ThemeProvider defaultTheme="dark" storageKey="photographer-theme">
+          {children}
+        </ThemeProvider>
+      </body>
     </html>
   )
 }
