@@ -26,7 +26,7 @@ export const metadata: Metadata = {
     "conceptual photography",
     "urban photography",
   ],
-  authors: [{ name: "Марк Литвак", url: "https://littlecan.ru" }],
+  authors: [{ name: "Марк Литвак", url: "https://littlecan.vercel.app" }],
   creator: "Марк Литвак",
   publisher: "Little Can Photography",
   formatDetection: {
@@ -34,18 +34,17 @@ export const metadata: Metadata = {
     address: false,
     telephone: false,
   },
-  metadataBase: new URL("https://littlecan.ru"),
+  metadataBase: new URL("https://littlecan.vercel.app"),
   alternates: {
     canonical: "/",
     languages: {
-      "ru-RU": "/",
-      "en-US": "/en",
+      "ru-RU": "/"
     },
   },
   openGraph: {
     type: "website",
     locale: "ru_RU",
-    url: "https://littlecan.ru",
+    url: "https://littlecan.vercel.app",
     title: "Марк Литвак | Фотограф | Москва",
     description:
       "Фотопортфолио Марка Литвака: концептуальная и стрит-фотография, чёрно-белые работы и визуальные эксперименты.",
@@ -79,10 +78,10 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "your-google-verification-code",
-    yandex: "your-yandex-verification-code",
+    google: "Eh2v37pj2bqGPUtVZ0io70aubcGVoIxcddMTI9JN0ZQ",
+    yandex: "1f0bec293ec639b0",
   },
-    generator: 'v0.dev'
+    generator: 'NextJS'
 }
 
 export default function RootLayout({
@@ -157,8 +156,8 @@ html {
               alternateName: "Mark Litvak",
               jobTitle: "Фотограф",
               description: "Концептуальная и стрит-фотография, чёрно-белые работы и визуальные эксперименты",
-              url: "https://littlecan.ru",
-              image: "https://littlecan.ru/gasmask.jpg",
+              url: "https://littlecan.vercel.app",
+              image: "https://littlecan.vercel.app/gasmask.jpg",
               sameAs: ["https://t.me/canonlifeshots", "https://instagram.com/canonlifeshots"],
               address: {
                 "@type": "PostalAddress",
