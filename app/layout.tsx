@@ -78,8 +78,8 @@ export const metadata: Metadata = {
     },
   },
   verification: {
-    google: "Eh2v37pj2bqGPUtVZ0io70aubcGVoIxcddMTI9JN0ZQ",
-    yandex: "1f0bec293ec639b0",
+    google: process.env.NEXT_PUBLIC_GOOGLE_VERIFICATION,
+    yandex: process.env.NEXT_PUBLIC_YANDEX_VERIFICATION,
   },
     generator: 'NextJS'
 }
