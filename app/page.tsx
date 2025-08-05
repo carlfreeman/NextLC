@@ -683,8 +683,7 @@ export default function PhotographerPortfolio() {
                     "Architecture",
                     "Conceptual Art",
                     "Black & White",
-                    "Urban Landscapes",
-                    "Portrait",
+                    "Urban Landscapes"
                   ].map((skill) => (
                     <Badge key={skill} variant="primary" className="bg-muted text-muted-foreground">
                       {skill}
@@ -700,7 +699,7 @@ export default function PhotographerPortfolio() {
                     <strong>Камера:</strong> Canon EOS 1100D
                   </p>
                   <p>
-                    <strong>Объектив:</strong> 16-35mm f/2.8, 24-70mm f/2.8, 50mm f/1.4
+                    <strong>Объектив:</strong> kit 18-55mm f/3.5-5.6
                   </p>
                   <p>
                     <strong>Обработка:</strong> Photoshop, Lightroom
