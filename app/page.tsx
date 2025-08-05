@@ -11,6 +11,7 @@ import { Label } from "@/components/ui/label"
 import Image from "next/image"
 import { VisuallyHidden } from "@/components/ui/visually-hidden"
 import { useTheme } from "@/components/theme-provider"
+import { trackSectionChange, trackPhotoView, trackFilterUse } from "@/lib/analytics"
 
 interface PhotoMetadata {
   id: string
@@ -120,6 +121,7 @@ export default function PhotographerPortfolio() {
   const handleCategoryChange = (category: string, checked: boolean) => {
     if (checked) {
       setSelectedCategories([...selectedCategories, category])
+      trackFilterUse("category", category)
     } else {
       setSelectedCategories(selectedCategories.filter((c) => c !== category))
     }
@@ -128,6 +130,7 @@ export default function PhotographerPortfolio() {
   const handleSeasonChange = (season: string, checked: boolean) => {
     if (checked) {
       setSelectedSeasons([...selectedSeasons, season])
+      trackFilterUse("season", season)
     } else {
       setSelectedSeasons(selectedSeasons.filter((s) => s !== season))
     }
@@ -182,7 +185,7 @@ export default function PhotographerPortfolio() {
             <Button
               onClick={() => setShowFilters(!showFilters)}
               variant="outline"
-              className="border-border bg-foreground text-background hover:bg-foreground/30"
+              className="border-border bg-foreground text-background hover:bg-foreground/90"
             >
               <Filter className="w-4 h-4 mr-2" />
               Фильтры
@@ -264,7 +267,7 @@ export default function PhotographerPortfolio() {
             {filteredPhotos.map((photo) => (
               <Dialog key={photo.id}>
                 <DialogTrigger asChild>
-                  <div className="group cursor-pointer">
+                  <div className="group cursor-pointer" onClick={() => trackPhotoView(photo.id, photo.title)}>
                     <div className="relative overflow-hidden bg-muted rounded-lg aspect-[4/5]">
                       <Image
                         src={photo.url || "/placeholder.svg"}
@@ -504,7 +507,7 @@ export default function PhotographerPortfolio() {
                                       <Badge
                                         key={category}
                                         variant="secondary"
-                                        className="bg-muted text-foreground text-xs px-2 py-1"
+                                        className="bg-muted text-muted-foreground text-xs px-2 py-1"
                                       >
                                         {category}
                                       </Badge>
@@ -683,7 +686,8 @@ export default function PhotographerPortfolio() {
                     "Architecture",
                     "Conceptual Art",
                     "Black & White",
-                    "Urban Landscapes"
+                    "Urban Landscapes",
+                    "Portrait",
                   ].map((skill) => (
                     <Badge key={skill} variant="primary" className="bg-muted text-muted-foreground">
                       {skill}
@@ -699,7 +703,7 @@ export default function PhotographerPortfolio() {
                     <strong>Камера:</strong> Canon EOS 1100D
                   </p>
                   <p>
-                    <strong>Объектив:</strong> kit 18-55mm f/3.5-5.6
+                    <strong>Объектив:</strong> 16-35mm f/2.8, 24-70mm f/2.8, 50mm f/1.4
                   </p>
                   <p>
                     <strong>Обработка:</strong> Photoshop, Lightroom
@@ -734,7 +738,10 @@ export default function PhotographerPortfolio() {
                 ].map((section) => (
                   <button
                     key={section.id}
-                    onClick={() => setActiveSection(section.id)}
+                    onClick={() => {
+                      setActiveSection(section.id)
+                      trackSectionChange(section.id)
+                    }}
                     className={`text-sm font-medium transition-colors capitalize ${
                       activeSection === section.id ? "text-foreground" : "text-muted-foreground hover:text-foreground"
                     }`}
