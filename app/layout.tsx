@@ -126,7 +126,7 @@ html {
               k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
               (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
 
-              ym(YANDEX_COUNTER_ID, "init", {
+              ym(103608368, "init", {
                    clickmap:true,
                    trackLinks:true,
                    accurateTrackBounce:true,
@@ -138,7 +138,7 @@ html {
         <noscript>
           <div>
             <img
-              src="https://mc.yandex.ru/watch/YANDEX_COUNTER_ID"
+              src="https://mc.yandex.ru/watch/103608368"
               style={{ position: "absolute", left: "-9999px" }}
               alt=""
             />
