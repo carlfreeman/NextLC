@@ -93,11 +93,11 @@ export default function RootLayout({
     <html lang="ru" suppressHydrationWarning>
       <head>
         <style>{`
-html {
-  font-family: ${GeistSans.style.fontFamily};
-  --font-sans: ${GeistSans.variable};
-  --font-mono: ${GeistMono.variable};
-}
+          html {
+            font-family: ${GeistSans.style.fontFamily};
+            --font-sans: ${GeistSans.variable};
+            --font-mono: ${GeistMono.variable};
+          }
         `}</style>
 
         {/* Google Analytics */}
@@ -108,10 +108,7 @@ html {
               window.dataLayer = window.dataLayer || [];
               function gtag(){dataLayer.push(arguments);}
               gtag('js', new Date());
-              gtag('config', 'G-Z2M09H7D2P', {
-                page_title: document.title,
-                page_location: window.location.href,
-              });
+              gtag('config', 'G-Z2M09H7D2P');
             `,
           }}
         />
