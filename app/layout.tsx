@@ -99,6 +99,7 @@ export default function RootLayout({
             --font-mono: ${GeistMono.variable};
           }
         `}</style>
+        <meta name="yandex-verification" content="1f0bec293ec639b0" />
 
         {/* Google Analytics */}
         <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z2M09H7D2P"></script>
