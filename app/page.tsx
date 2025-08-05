@@ -175,7 +175,7 @@ export default function PhotographerPortfolio() {
               className="border-gray-600 bg-white text-black hover:bg-gray-300"
             >
               <Filter className="w-4 h-4 mr-2" />
-              Filters
+              Фильтры
               {(selectedCategories.length > 0 || selectedSeasons.length > 0) && (
                 <Badge className="ml-2 bg-white text-black">{selectedCategories.length + selectedSeasons.length}</Badge>
               )}
@@ -349,7 +349,7 @@ export default function PhotographerPortfolio() {
                                   <p>
                                     Разрешение: {photo.width} × {photo.height}
                                   </p>
-                                  <p>Дата: {new Date(photo.dateCreated).toLocaleDateString()}</p>
+                                  <p>Загружено: {new Date(photo.dateCreated).toLocaleDateString()}</p>
                                   {photo.dateTaken && <p>Снято: {new Date(photo.dateTaken).toLocaleDateString()}</p>}
                                   {photo.format && <p>Формат: {photo.format.toUpperCase()}</p>}
                                   {photo.fileSize && <p>Вес: {photo.fileSize}</p>}
@@ -420,7 +420,7 @@ export default function PhotographerPortfolio() {
                                   <p>
                                     Разрешение: {photo.width} × {photo.height}
                                   </p>
-                                  <p>Дата: {new Date(photo.dateCreated).toLocaleDateString()}</p>
+                                  <p>Загружено: {new Date(photo.dateCreated).toLocaleDateString()}</p>
                                   {photo.dateTaken && <p>Снято: {new Date(photo.dateTaken).toLocaleDateString()}</p>}
                                   {photo.format && <p>Формат: {photo.format.toUpperCase()}</p>}
                                   {photo.fileSize && <p>Вес: {photo.fileSize}</p>}
@@ -505,7 +505,7 @@ export default function PhotographerPortfolio() {
                                 <p>
                                   Разрешение: {photo.width} × {photo.height}
                                 </p>
-                                <p>Дата: {new Date(photo.dateCreated).toLocaleDateString()}</p>
+                                <p>Загружено: {new Date(photo.dateCreated).toLocaleDateString()}</p>
                                 {photo.dateTaken && <p>Снято: {new Date(photo.dateTaken).toLocaleDateString()}</p>}
                                 <div className="flex gap-4">
                                   {photo.format && <p>Формат: {photo.format.toUpperCase()}</p>}
@@ -671,27 +671,8 @@ export default function PhotographerPortfolio() {
                     <strong>Объектив:</strong> 16-35mm f/2.8, 24-70mm f/2.8, 50mm f/1.4
                   </p>
                   <p>
-                    <strong>Обработка:</strong> Photoshop, Capture One
+                    <strong>Обработка:</strong> Photoshop, Lightroom
                   </p>
-                </div>
-              </div>
-            </div>
-
-            {/* Awards & Recognition */}
-            <div>
-              <h3 className="text-white font-medium mb-4">Признание и комплименты</h3>
-              <div className="space-y-3 text-gray-300">
-                <div className="border-l-2 border-gray-700 pl-4">
-                  <p className="font-medium">Moscow Photography Awards</p>
-                  <p className="text-sm text-gray-400">Best Street Photography Series, 2024</p>
-                </div>
-                <div className="border-l-2 border-gray-700 pl-4">
-                  <p className="font-medium">Urban Vision Exhibition</p>
-                  <p className="text-sm text-gray-400">Featured Artist, Central House of Artists, 2023</p>
-                </div>
-                <div className="border-l-2 border-gray-700 pl-4">
-                  <p className="font-medium">International Photography Contest</p>
-                  <p className="text-sm text-gray-400">Honorable Mention, Architecture Category, 2023</p>
                 </div>
               </div>
             </div>
@@ -709,19 +690,24 @@ export default function PhotographerPortfolio() {
           <div className="flex items-center justify-between">
             <div className="flex items-center space-x-2">
               <Camera className="w-6 h-6 text-white" />
-              <span className="text-white font-light text-lg">Портфолио</span>
+              <span className="text-white font-light text-lg">Little Can</span>
             </div>
 
             <div className="flex space-x-8">
-              {["main", "portfolio", "about", "blog"].map((section) => (
+              {[
+                { id: "main", name: "Главная" },
+                { id: "portfolio", name: "Портфолио" },
+                { id: "about", name: "Био" },
+                { id: "blog", name: "Блог" }
+              ].map((section) => (
                 <button
-                  key={section}
-                  onClick={() => setActiveSection(section)}
+                  key={section.id}
+                  onClick={() => setActiveSection(section.id)}
                   className={`text-sm font-medium transition-colors capitalize ${
-                    activeSection === section ? "text-white" : "text-gray-400 hover:text-white"
+                    activeSection === section.id ? "text-white" : "text-gray-400 hover:text-white"
                   }`}
                 >
-                  {section === "main" ? "Home" : section}
+                  {section.name}
                 </button>
               ))}
             </div>
