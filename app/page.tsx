@@ -586,7 +586,7 @@ export default function PhotographerPortfolio() {
           <div className="space-y-6">
             <div className="relative aspect-[3/4] bg-gray-900 rounded-lg overflow-hidden">
               <Image
-                src="/placeholder.svg?height=600&width=450"
+                src="./gasmask.jpg"
                 alt="Photographer portrait"
                 fill
                 className="object-cover"
@@ -619,24 +619,16 @@ export default function PhotographerPortfolio() {
           {/* About Content */}
           <div className="space-y-8">
             <div>
-              <h2 className="text-4xl md:text-5xl font-light text-white mb-6">Обо мне</h2>
+              <h2 className="text-4xl md:text-5xl font-light text-white mb-6">Привет!</h2>
               <div className="space-y-6 text-gray-300 leading-relaxed">
                 <p>
-                  I'm a photographer based in Moscow, passionate about capturing the essence of urban life and the quiet
-                  moments that often go unnoticed. My work focuses on the intersection of architecture, street
-                  photography, and conceptual art.
+                  Я Марк Литвак. Снимаю город, друзей и вещи, мимо которых обычно проходят: трещины в асфальте, смятые билеты, тени на стенах. То, что кажется невзрачным, часто хранит больше историй, чем парадные фасады.
                 </p>
-
                 <p>
-                  With over 8 years of experience behind the lens, I've developed a distinctive style that emphasizes
-                  contrast, composition, and the emotional depth of everyday scenes. My approach combines technical
-                  precision with an intuitive understanding of light and shadow.
+                  Мои кадры - не про идеальную композицию, а про то, как обыденное становится значимым, если дать ему время. Иногда экспериментирую с форматами - можно и залезть на пыльный чердак в противогазе.
                 </p>
-
                 <p>
-                  When I'm not photographing the streets of Moscow, I enjoy experimenting with new techniques and
-                  exploring the boundaries between documentary and fine art photography. Each image tells a story, and I
-                  believe in the power of visual narrative to connect people across cultures and experiences.
+                  Верю, что фотография - это не окончательная фиксация момента, а способ сохранить его, чтобы пережить заново.
                 </p>
               </div>
             </div>
@@ -697,7 +689,7 @@ export default function PhotographerPortfolio() {
               {[
                 { id: "main", name: "Главная" },
                 { id: "portfolio", name: "Портфолио" },
-                { id: "about", name: "Био" },
+                { id: "about", name: "Об Авторе" },
                 { id: "blog", name: "Блог" }
               ].map((section) => (
                 <button
