@@ -1,16 +1,12 @@
 import { NextResponse } from "next/server"
-import { promises as fs } from "fs"
-import path from "path"
+import { getAllBlogPosts } from "@/lib/blog"
 
 export async function GET() {
   try {
-    const filePath = path.join(process.cwd(), "data", "blog.json")
-    const fileContents = await fs.readFile(filePath, "utf8")
-    const data = JSON.parse(fileContents)
-
-    return NextResponse.json(data)
+    const posts = await getAllBlogPosts()
+    return NextResponse.json({ posts })
   } catch (error) {
-    console.error("Error reading blog data:", error)
-    return NextResponse.json({ posts: [] })
+    console.error("Error in blog API:", error)
+    return NextResponse.json({ posts: [] }, { status: 500 })
   }
 }
